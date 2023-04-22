@@ -9,10 +9,7 @@
 package maintainControl;
 
 //Imports 
-import javax.swing.*;
-import java.awt.Color;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import javax.swing.*; 
 
 //Start of MaintainControDriver Class
 public class MaintainControlDriver
@@ -20,8 +17,11 @@ public class MaintainControlDriver
 	//Main
 	public static void main(String args[])
 	{
+		homeScreen maintainControl = new homeScreen(); 
+		maintainControl.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		maintainControl.setSize(800, 250);
+		maintainControl.setVisible(true); 
 
-		
 	}//End of main
 
 }//End of MaintainControlDriver class
