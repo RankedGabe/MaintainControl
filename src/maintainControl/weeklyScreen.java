@@ -1,5 +1,6 @@
 package maintainControl;
 
-public class weeklyScreen {
+public class weeklyScreen 
+{
     
 }

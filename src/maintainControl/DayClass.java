@@ -15,7 +15,12 @@ public class DayClass
 {
 
     //Objects
-    private Calendar date; 
+    private Calendar date;
+    private String dayOfWeek; 
+
+
+    //Functions
+    
 
     
 }//end of DayClass class

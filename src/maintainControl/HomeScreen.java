@@ -101,26 +101,26 @@ public class homeScreen extends JFrame
             }
             else if (event.getSource() == weeklyView)
             {
-                weeklyScreen weeklyPopUp = new weeklyScreen(); 
-                weeklyPopUp.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                weeklyPopUp.setSize(600, 300);
-                weeklyPopUp.setVisible(true);
+                //weeklyScreen weeklyPopUp = new weeklyScreen(); 
+                //weeklyPopUp.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                //weeklyPopUp.setSize(600, 300);
+                //weeklyPopUp.setVisible(true);
 
             }
             else if (event.getSource() == dailyView)
             {
-                dailyScreen dailyPopUp = new dailyScreen(); 
-                dailyPopUp.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                dailyPopUp.setSize(600, 300);
-                dailyPopUp.setVisible(true);
+                //dailyScreen dailyPopUp = new dailyScreen(); 
+                //dailyPopUp.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                //dailyPopUp.setSize(600, 300);
+                //dailyPopUp.setVisible(true);
                 
             }
             else if (event.getSource() == toDoListView)
             {
-                toDoListScreen toDoListPopUp = new toDoListScreen(); 
-                toDoListPopUp.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                toDoListPopUp.setSize(600, 300);
-                toDoListPopUp.setVisible(true);
+                //toDoListScreen toDoListPopUp = new toDoListScreen(); 
+                //toDoListPopUp.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                //toDoListPopUp.setSize(600, 300);
+                //toDoListPopUp.setVisible(true);
                 
             }//end of else if statements   
 

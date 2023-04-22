@@ -143,10 +143,10 @@ public class monthlyScreen extends JFrame
             if (event.getSource() == dayButton)
             {
                 //Pop-Up Window For Daily View
-                dailyScreen dailyPopUp = new dailyScreen(); 
-                dailyPopUp.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                dailyPopUp.setSize(600, 300);
-                dailyPopUp.setVisible(true);
+                //dailyScreen dailyPopUp = new dailyScreen(); 
+                //dailyPopUp.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                //dailyPopUp.setSize(600, 300);
+                //dailyPopUp.setVisible(true);
 
             }
             else if (event.getSource() == addEvent)
@@ -160,14 +160,6 @@ public class monthlyScreen extends JFrame
             else if (event.getSource() == deleteEvent)
             {
                 //
-                
-            }
-            else if (event.getSource() == toDoListView)
-            {
-                toDoListScreen toDoListPopUp = new toDoListScreen(); 
-                toDoListPopUp.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                toDoListPopUp.setSize(600, 300);
-                toDoListPopUp.setVisible(true);
                 
             }//end of else if statements   
 
