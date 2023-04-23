@@ -94,25 +94,25 @@ public class homeScreen extends JFrame
             {
                 //Pop-Up Window For Monthly View
                 monthlyScreen monthlyPopUp = new monthlyScreen(); 
-                monthlyPopUp.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                monthlyPopUp.setSize(600, 300);
+                monthlyPopUp.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+                monthlyPopUp.setSize(600, 600);
                 monthlyPopUp.setVisible(true);
 
             }
             else if (event.getSource() == weeklyView)
             {
                 //weeklyScreen weeklyPopUp = new weeklyScreen(); 
-                //weeklyPopUp.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                //weeklyPopUp.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
                 //weeklyPopUp.setSize(600, 300);
                 //weeklyPopUp.setVisible(true);
 
             }
             else if (event.getSource() == dailyView)
             {
-                //dailyScreen dailyPopUp = new dailyScreen(); 
-                //dailyPopUp.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                //dailyPopUp.setSize(600, 300);
-                //dailyPopUp.setVisible(true);
+                dailyScreen dailyPopUp = new dailyScreen(); 
+                dailyPopUp.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+                dailyPopUp.setSize(600, 600);
+                dailyPopUp.setVisible(true);
                 
             }
             else if (event.getSource() == toDoListView)

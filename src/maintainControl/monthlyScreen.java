@@ -14,7 +14,7 @@ import java.awt.*;
 import java.time.*;
 import java.time.format.TextStyle;
 import java.util.*; 
-import java.awt.event.*; 
+import java.awt.event.*;
 
 //Start of monthlyScreen Class
 public class monthlyScreen extends JFrame
@@ -32,7 +32,7 @@ public class monthlyScreen extends JFrame
     private JButton addEvent;
     private JButton deleteEvent; 
     private JPanel eventGrid; 
-    private JTextArea events;   
+    private JTextArea events;
 
     //Constructor
     public monthlyScreen()
@@ -52,9 +52,6 @@ public class monthlyScreen extends JFrame
         //Adding to Frame
         add(monthandyearTitle); 
 
-        //NOTE TO SAVANANH, WOULD LIKE TO MAKE THE DAYS OF THE WEEK BUTTONS INTO AN ARRAY SO 
-        //THAT WE CAN CLICK ON EACH MONTHLY VIEW BUTTON
-
         //Setting up Monthly Grid
         colorful = new Color(255, 204, 255);
         monthlyGrid = new JPanel(); 
@@ -63,10 +60,11 @@ public class monthlyScreen extends JFrame
         cal.setTime(new Date());
         cal.set(Calendar.DAY_OF_MONTH, cal.getActualMinimum(Calendar.DAY_OF_MONTH));
         dayOfWeek = cal.get(Calendar.DAY_OF_WEEK);
+        
         //Filling the grid with days of week 
-        for (int i = 1; i <= monthandyear.lengthOfMonth(); i++)
-        {
-            int count = 0; 
+        int count = 0;
+        for (int i = 1; i <= monthandyear.lengthOfMonth()+dayOfWeek; i++)
+        { 
             if (i%2 == 0)
             {
                 colorful = new Color(229, 204, 255); 
@@ -129,8 +127,6 @@ public class monthlyScreen extends JFrame
         addEvent.addActionListener(click);
         deleteEvent.addActionListener(click);
 
-        
-
     }//End of monthlyScreen Constructor
 
     //Inner Class For Event Handeling
@@ -143,15 +139,15 @@ public class monthlyScreen extends JFrame
             if (event.getSource() == dayButton)
             {
                 //Pop-Up Window For Daily View
-                //dailyScreen dailyPopUp = new dailyScreen(); 
-                //dailyPopUp.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                //dailyPopUp.setSize(600, 300);
-                //dailyPopUp.setVisible(true);
+                dailyScreen dailyPopUp = new dailyScreen(); 
+                dailyPopUp.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                dailyPopUp.setSize(600, 300);
+                dailyPopUp.setVisible(true);
 
             }
             else if (event.getSource() == addEvent)
             {
-               //weeklyScreen weeklyPopUp = new weeklyScreen(); 
+                //weeklyScreen weeklyPopUp = new weeklyScreen(); 
                 //weeklyPopUp.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 //weeklyPopUp.setSize(600, 300);
                 //weeklyPopUp.setVisible(true);
