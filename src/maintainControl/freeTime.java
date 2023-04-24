@@ -9,7 +9,6 @@
 package maintainControl;
 
 //Imports
-import java.util.*; 
 
 
 //Start of freeTime class
@@ -19,15 +18,9 @@ public class freeTime
     double freeHours; 
 
     //Constructor
-    public freeTime(ArrayList<eventClass> eventarray)
+    public freeTime()
     { 
-        int subHours = 0; 
-        for (int i = 0; i < eventarray.size(); i++)
-        {
-            subHours += Integer.parseInt(eventarray.get(i).getHour());
-        }
-
-        freeHours = 24 - subHours; 
+        freeHours = 0; 
 
     }//End of constructor
 
@@ -35,6 +28,21 @@ public class freeTime
     public double getFreeHours()
     {
         return freeHours; 
+    }
+
+    public void setFreeHours(double freeTime)
+    {
+        freeHours = freeTime; 
+    }
+
+    public void subtractHours(double minus)
+    {
+        freeHours = freeHours - minus; 
+    }
+
+    public void addHours(double add)
+    {
+        freeHours = freeHours + add; 
     }
     
 }//End of freeTime Class

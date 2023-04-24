@@ -1,7 +1,7 @@
 ////////////////////////////////////////
 //Program Name: eventClass.java
-//Program Purpose: a class to facilitate listing and adding and removing of events
-//Last Updated: 04/23/2023
+//Program Purpose: a class to facilitate creating of events
+//Last Updated: 04/24/2023
 //Last Updated By: Savannah Stephenson
 /////////////////////////////////////////
 
@@ -11,6 +11,8 @@ package maintainControl;
 //Imports
 import java.io.*; 
 import java.util.*; 
+import java.awt.*; 
+import javax.swing.*; 
 
 //Start of eventClass Class
 public class eventClass 
@@ -22,25 +24,16 @@ public class eventClass
     private String description; 
 
     //Constructor
-    public eventClass(String day, String time1, String title)
-    {
-        //Store Data
-        date = day; 
-        hour = time1; 
-        description = title; 
-        wholeEventString = "Date: " + date + " Length: " + hour + " hours \n" + description + "\n";  
-
-    }//End of Constructor 
-
-    //Second Constructor
     public eventClass()
     {
-        wholeEventString = " ";  
-        date = " ";  
-        hour= " "; 
-        description = " ";  
-    }
+        //Gather information for event and save in object
+        date = JOptionPane.showInputDialog("Input the date of your event in mm-dd-yyyy format: ");
+        hour = JOptionPane.showInputDialog("Input the estimated number of hours your event will take: ");
+        description = JOptionPane.showInputDialog("Input the title of your event: "); 
+        wholeEventString = "Date: " + date + " Length: " + hour + " hours \n" + description + "\n";  
 
+    }//End of Constructor
+     
     //Functions
     public String getWholeEventString()
     {

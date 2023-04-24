@@ -1,7 +1,7 @@
 ////////////////////////////////////////
 //Program Name: dailyScreen.java
 //Program Purpose: create a jFrame for the daily screen of Maintain Control
-//Last Updated: 04/21/2023
+//Last Updated: 04/24/2023
 //Last Updated By: Savannah Stephenson
 /////////////////////////////////////////
 
@@ -33,6 +33,7 @@ public class dailyScreen extends JFrame
     //Constructor
     public dailyScreen()
     {
+        //Calling super consturctor and setting layout
         super("Maintain Control: Daily Screen"); 
         setLayout(new FlowLayout());
         colorful = new Color(255, 255, 255);
@@ -70,9 +71,9 @@ public class dailyScreen extends JFrame
         events.setLineWrap(true); 
         events.setWrapStyleWord(true); 
         events.setEditable(false);
-        //here we would put the method to get a super long string of events
-        //////////here
         events.append("blah blah blah \nblah blah blah blah");
+        //instead of blah blah blha in the append area im going to make a function 
+        //somewhere to read the text file that the events will be stored in
         add(events);
 
         //adding event handlers
@@ -91,15 +92,13 @@ public class dailyScreen extends JFrame
 		{
             if (event.getSource() == addEvent)
             {
-                //weeklyScreen weeklyPopUp = new weeklyScreen(); 
-                //weeklyPopUp.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                //weeklyPopUp.setSize(600, 300);
-                //weeklyPopUp.setVisible(true);
-
+                //in testing phase
+                eventClass newEvent = new eventClass(); 
+                events.append(newEvent.getWholeEventString()); 
             }
             else if (event.getSource() == deleteEvent)
             {
-                //
+                //still have to figure this out
                 
             }//end of else if statements   
 

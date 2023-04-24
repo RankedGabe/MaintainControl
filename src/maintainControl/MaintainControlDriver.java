@@ -1,7 +1,7 @@
 /////////////////////////////////////////
-//Program Name: 
-//Program Purpose: 
-//Last Updated: 04/21/2023
+//Program Name: MaintainControlDriver.java
+//Program Purpose: drive Maintain Control program 
+//Last Updated: 04/24/2023
 //Last Updated By: Savannah Stephenson
 /////////////////////////////////////////
 
