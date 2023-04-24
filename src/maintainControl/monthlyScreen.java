@@ -32,8 +32,7 @@ public class monthlyScreen extends JFrame
     private JButton addEvent;
     private JButton deleteEvent; 
     private JPanel eventGrid; 
-    private JTextArea events;
-    private ArrayList<eventClass> eventsArray; 
+    private JTextArea events; 
 
     //Constructor
     public monthlyScreen()
