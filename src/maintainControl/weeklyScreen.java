@@ -1,7 +1,7 @@
 ////////////////////////////////////////
-//Program Name: monthlyScreen.java
-//Program Purpose: create a jFrame for the monthly screen of Maintain Control
-//Last Updated: 04/21/2023
+//Program Name: weeklyScreen.java
+//Program Purpose: create a jFrame for the weekly screen of Maintain Control
+//Last Updated: 04/24/2023
 //Last Updated By: Savannah Stephenson
 /////////////////////////////////////////
 
@@ -53,7 +53,7 @@ public class weeklyScreen extends JFrame
         weekTitle.setFont(new Font("San-Serif", Font.BOLD, 70 ));
         add(weekTitle);
 
-        //Adding area for each day for events 
+        //Adding area for each day for events  with name of day at top
         weeklyEvents = new JPanel(); 
         colorful = new Color(255, 204, 255); 
         colorful2 = new Color(229, 204, 255); 
@@ -71,7 +71,7 @@ public class weeklyScreen extends JFrame
         mondayEvents.setWrapStyleWord(true);
         mondayEvents.setBackground(colorful2);
         mondayEvents.setEditable(false); 
-        mondayEvents.append("STUFF HERE"); 
+        mondayEvents.append("STUFF HERE"); //the get events for the specified day
         weeklyEvents.add(mondayEvents);
 
         tuesdayEvents = new JTextArea("             TUESDAY\n\n",20, 15);
@@ -116,8 +116,6 @@ public class weeklyScreen extends JFrame
 
         //adding weekly events panel to frame
         add(weeklyEvents); 
-
-
 
     }//End of weeklyScreen Constructor
 

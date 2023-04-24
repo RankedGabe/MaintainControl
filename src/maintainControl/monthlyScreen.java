@@ -41,8 +41,6 @@ public class monthlyScreen extends JFrame
         super("Maintain Control: Monthly View"); 
         setLayout(new FlowLayout());
 
-        eventsArray = new ArrayList(100);
-
         //Setting up Title Area
         monthandyear = YearMonth.now(); 
         //Setting Month and Year from system
@@ -125,7 +123,7 @@ public class monthlyScreen extends JFrame
         events.setLineWrap(true); 
         events.setWrapStyleWord(true);
         events.setEditable(false); 
-        events.append(addAllEvents());
+        events.append("This is where the events will go \n blah blah blah blah ");
         add(events);
 
         //setting up button handeler
@@ -154,18 +152,9 @@ public class monthlyScreen extends JFrame
             }
             else if (event.getSource() == addEvent)
             {
-                ArrayList<String> infoForEvent = new ArrayList<String>(3); 
-                ArrayList<String> promptForEvent = new ArrayList<String>(3);
-                promptForEvent.set(0, "the date in mm-dd-yyyy format please:"); 
-                promptForEvent.set(1, "the number of hours you have estimated the event will take:");
-                promptForEvent.set(2, "the description of your event:"); 
-                for (int i = 0; i < 3; i++)
-                {
-                    infoForEvent.set(i, JOptionPane.showInputDialog("Please enter "+ promptForEvent.get(i)));
-                }
-                eventClass eventNew = new eventClass(infoForEvent.get(0), infoForEvent.get(1), infoForEvent.get(2));
-                eventsArray.add(eventsArray.size(), eventNew); 
-
+                //in testing phase
+                eventClass newEvent = new eventClass(); 
+                events.append(newEvent.getWholeEventString()); 
             }
             else if (event.getSource() == deleteEvent)
             {
@@ -176,26 +165,5 @@ public class monthlyScreen extends JFrame
         }//end of override of function
 
     }//End of ButtonHandler Class
-
-    //get class 
-    public String addAllEvents()
-    {
-        if (eventsArray.size() == 0)
-        {
-            return ""; 
-        }
-        else
-        {
-            String eventsString = ""; 
-
-            for (int i = 0; i < eventsArray.size(); i++)
-            {
-                eventsString += eventsArray.get(i).getWholeEventString(); 
-            }
-
-            return eventsString; 
-        }
-        
-    }
     
 }//End of monthlyScreen Class
