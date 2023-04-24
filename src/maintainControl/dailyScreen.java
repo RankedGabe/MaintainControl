@@ -44,7 +44,7 @@ public class dailyScreen extends JFrame
         //Setting Month and Year from system
         dayTitle = new JLabel(monthandyear.getMonth().getDisplayName(TextStyle.FULL_STANDALONE, Locale.ENGLISH) + " " + date.getDayOfWeek() + " " + date.getDateDay()); 
         //Setting Font
-        dayTitle.setFont(new Font("Serif", Font.BOLD, 70 ));
+        dayTitle.setFont(new Font("San-Serif", Font.BOLD, 70 ));
         //Setting color 
         colorful = new Color(255, 153, 255);
         dayTitle.setForeground(colorful);
@@ -66,7 +66,13 @@ public class dailyScreen extends JFrame
         add(addEvent);
         
         //add text area for events that month
-        events = new JTextArea("", 400, 100 );  //use a function here to return a list of events for the text area 
+        events = new JTextArea(0, 55);  
+        events.setLineWrap(true); 
+        events.setWrapStyleWord(true); 
+        events.setEditable(false);
+        //here we would put the method to get a super long string of events
+        //////////here
+        events.append("blah blah blah \nblah blah blah blah");
         add(events);
 
         //adding event handlers

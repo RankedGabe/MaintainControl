@@ -33,6 +33,7 @@ public class monthlyScreen extends JFrame
     private JButton deleteEvent; 
     private JPanel eventGrid; 
     private JTextArea events;
+    private ArrayList<eventClass> eventsArray; 
 
     //Constructor
     public monthlyScreen()
@@ -40,12 +41,14 @@ public class monthlyScreen extends JFrame
         super("Maintain Control: Monthly View"); 
         setLayout(new FlowLayout());
 
+        eventsArray = new ArrayList(100);
+
         //Setting up Title Area
         monthandyear = YearMonth.now(); 
         //Setting Month and Year from system
         monthandyearTitle = new JLabel(monthandyear.getMonth().getDisplayName(TextStyle.FULL_STANDALONE, Locale.ENGLISH) + " " + monthandyear.getYear()); 
         //Setting Font
-        monthandyearTitle.setFont(new Font("Serif", Font.BOLD, 70 ));
+        monthandyearTitle.setFont(new Font("San-Serif", Font.BOLD, 70 ));
         //Setting color 
         colorful = new Color(255, 153, 255);
         monthandyearTitle.setForeground(colorful);
@@ -118,7 +121,11 @@ public class monthlyScreen extends JFrame
         add(eventGrid); 
 
         //add text area for events that month
-        events = new JTextArea("", 600, 100 );  //use a function here to return a list of events for the text area 
+        events = new JTextArea("EVENTS: \n", 0, 55 );  
+        events.setLineWrap(true); 
+        events.setWrapStyleWord(true);
+        events.setEditable(false); 
+        events.append(addAllEvents());
         add(events);
 
         //setting up button handeler
@@ -147,10 +154,17 @@ public class monthlyScreen extends JFrame
             }
             else if (event.getSource() == addEvent)
             {
-                //weeklyScreen weeklyPopUp = new weeklyScreen(); 
-                //weeklyPopUp.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                //weeklyPopUp.setSize(600, 300);
-                //weeklyPopUp.setVisible(true);
+                ArrayList<String> infoForEvent = new ArrayList<String>(3); 
+                ArrayList<String> promptForEvent = new ArrayList<String>(3);
+                promptForEvent.set(0, "the date in mm-dd-yyyy format please:"); 
+                promptForEvent.set(1, "the number of hours you have estimated the event will take:");
+                promptForEvent.set(2, "the description of your event:"); 
+                for (int i = 0; i < 3; i++)
+                {
+                    infoForEvent.set(i, JOptionPane.showInputDialog("Please enter "+ promptForEvent.get(i)));
+                }
+                eventClass eventNew = new eventClass(infoForEvent.get(0), infoForEvent.get(1), infoForEvent.get(2));
+                eventsArray.add(eventsArray.size(), eventNew); 
 
             }
             else if (event.getSource() == deleteEvent)
@@ -162,5 +176,26 @@ public class monthlyScreen extends JFrame
         }//end of override of function
 
     }//End of ButtonHandler Class
+
+    //get class 
+    public String addAllEvents()
+    {
+        if (eventsArray.size() == 0)
+        {
+            return ""; 
+        }
+        else
+        {
+            String eventsString = ""; 
+
+            for (int i = 0; i < eventsArray.size(); i++)
+            {
+                eventsString += eventsArray.get(i).getWholeEventString(); 
+            }
+
+            return eventsString; 
+        }
+        
+    }
     
 }//End of monthlyScreen Class

@@ -36,7 +36,7 @@ public class homeScreen extends JFrame
         //Setting up Title area
         titleArea = new JLabel("Maintain Control");  
         //Setting Font
-        titleArea.setFont(new Font("Serif", Font.BOLD, 80 ));
+        titleArea.setFont(new Font("San-Serif", Font.BOLD, 80 ));
         //Setting color 
         colorful = new Color(255, 153, 255);
         titleArea.setForeground(colorful);
@@ -101,10 +101,10 @@ public class homeScreen extends JFrame
             }
             else if (event.getSource() == weeklyView)
             {
-                //weeklyScreen weeklyPopUp = new weeklyScreen(); 
-                //weeklyPopUp.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
-                //weeklyPopUp.setSize(600, 300);
-                //weeklyPopUp.setVisible(true);
+                weeklyScreen weeklyPopUp = new weeklyScreen(); 
+                weeklyPopUp.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+                weeklyPopUp.setSize(1110, 500);
+                weeklyPopUp.setVisible(true);
 
             }
             else if (event.getSource() == dailyView)
@@ -117,10 +117,10 @@ public class homeScreen extends JFrame
             }
             else if (event.getSource() == toDoListView)
             {
-                //toDoListScreen toDoListPopUp = new toDoListScreen(); 
-                //toDoListPopUp.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                //toDoListPopUp.setSize(600, 300);
-                //toDoListPopUp.setVisible(true);
+                toDoListScreen toDoListPopUp = new toDoListScreen(); 
+                toDoListPopUp.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+                toDoListPopUp.setSize(800, 600);
+                toDoListPopUp.setVisible(true);
                 
             }//end of else if statements   
 

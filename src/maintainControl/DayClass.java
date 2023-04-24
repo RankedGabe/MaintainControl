@@ -19,6 +19,7 @@ public class dayClass
     private Calendar date; 
     private String dateNum;
     private String dayOfWeek;
+    private double freeTimeToday;
 
     //Constructor
     public dayClass(Calendar dateGiven)
@@ -80,6 +81,9 @@ public class dayClass
 
     }//End of gatDateDay function
 
-
+    public String getFreeTimeToday()
+    {
+        return Double.toString(freeTimeToday); 
+    }
     
 }//end of DayClass class
