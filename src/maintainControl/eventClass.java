@@ -30,7 +30,29 @@ public class eventClass
         date = JOptionPane.showInputDialog("Input the date of your event in mm-dd-yyyy format: ");
         hour = JOptionPane.showInputDialog("Input the estimated number of hours your event will take: ");
         description = JOptionPane.showInputDialog("Input the title of your event: "); 
-        wholeEventString = "Date: " + date + " Length: " + hour + " hours \n" + description + "\n";  
+        wholeEventString = "Date: " + date + " Length: " + hour + " hours \n" + description + "\n\n";  
+
+        //Write Text to events file
+        try
+        {
+            FileWriter myWriter = new FileWriter("C:\\Users\\steph\\SCHOOL\\Dev\\MaintainControl\\src\\maintainControl\\EventFile.txt", true);
+            myWriter.write("\n");
+            myWriter.write(date); 
+            myWriter.write("\n"); 
+            myWriter.write(hour);
+            myWriter.write("\n"); 
+            myWriter.write(description); 
+            myWriter.write("\n");
+            myWriter.close(); 
+            JFrame f = new JFrame(); 
+            JOptionPane.showMessageDialog(f, "Event successfully written to events file." ); 
+        }
+        catch (IOException e)
+        {
+            JFrame f = new JFrame(); 
+            JOptionPane.showMessageDialog(f, "An Error Occurred.");
+        }
+
 
     }//End of Constructor
      

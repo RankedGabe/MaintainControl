@@ -29,7 +29,7 @@ public class toDoListScreen extends JFrame
     {
         super("Maintain Control: To-Do List");
         setLayout(new FlowLayout());
-        colorful = new Color(255, 153, 255);
+        colorful = new Color(0, 128, 255);
         
         //Setting Up Title Area
         title = new JLabel("To-Do List"); 
@@ -41,7 +41,7 @@ public class toDoListScreen extends JFrame
         //Setting Up Button
         addTask = new JButton("Add Task");
         addTask.setPreferredSize(new Dimension(500, 40));;
-        colorful = new Color(255, 204, 255);
+        colorful = new Color(204, 229, 255);
         addTask.setBackground(colorful);
 
         //Setting Up Button Handler
@@ -54,6 +54,7 @@ public class toDoListScreen extends JFrame
         //Add task area
         marksArea = new JPanel(new FlowLayout()); 
         marksArea.setPreferredSize(new Dimension(750, 300));
+        colorful = new Color(229, 204, 255); 
         marksArea.setBackground(colorful); 
         add(marksArea);  
 

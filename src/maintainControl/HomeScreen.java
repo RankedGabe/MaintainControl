@@ -31,14 +31,13 @@ public class homeScreen extends JFrame
     {
         super("Maintain Control"); 
         setLayout(new FlowLayout());
-        colorful = new Color(255, 255, 255); 
+        colorful = new Color(0, 128, 255); 
 
         //Setting up Title area
         titleArea = new JLabel("Maintain Control");  
         //Setting Font
         titleArea.setFont(new Font("San-Serif", Font.BOLD, 80 ));
         //Setting color 
-        colorful = new Color(255, 153, 255);
         titleArea.setForeground(colorful);
         //Adding Title to Frame
         add(titleArea); 
@@ -54,7 +53,7 @@ public class homeScreen extends JFrame
         //Setting up Buttons
         monthlyView = new JButton("Monthly");
         monthlyView.setPreferredSize(new Dimension(100, 50));
-        colorful = new Color(255, 204, 255); 
+        colorful = new Color(204, 229, 255); 
         monthlyView.setBackground(colorful);
         monthlyView.addActionListener(click); 
         

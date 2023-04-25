@@ -54,7 +54,7 @@ public class weeklyScreen extends JFrame
 
         //Adding area for each day for events  with name of day at top
         weeklyEvents = new JPanel(); 
-        colorful = new Color(255, 204, 255); 
+        colorful = new Color(204, 229, 255); 
         colorful2 = new Color(229, 204, 255); 
         
         sundayEvents = new JTextArea("              SUNDAY\n\n", 20, 15); 
