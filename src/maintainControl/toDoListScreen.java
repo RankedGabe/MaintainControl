@@ -1,6 +1,6 @@
 /////////////////////////////////////////
 //Program Name: homeScreen.java
-//Program Purpose: create a jFrame for the home screen of Maintain Control
+//Program Purpose: create a jFrame for the to-do-list screen of Maintain Control
 //Last Updated: 04/21/2023
 //Last Updated By: Savannah Stephenson
 /////////////////////////////////////////
