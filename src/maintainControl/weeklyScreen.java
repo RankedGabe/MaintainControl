@@ -11,6 +11,8 @@ package maintainControl;
 //Imports
 import javax.swing.*;
 import java.awt.*;
+import java.io.File;
+import java.io.IOException;
 import java.time.*;
 import java.time.format.TextStyle;
 import java.util.*;
@@ -33,6 +35,7 @@ public class weeklyScreen extends JFrame
     private JTextArea thursdayEvents;
     private JTextArea fridayEvents;
     private JTextArea saturdayEvents;
+    private String events; 
     
 
     //Constructor
@@ -62,7 +65,9 @@ public class weeklyScreen extends JFrame
         sundayEvents.setWrapStyleWord(true);
         sundayEvents.setBackground(colorful); 
         sundayEvents.setEditable(false);
-        sundayEvents.append("here is where \nthetext will go");
+        events = ""; 
+        events = gatherEvents(thisWeek.getDateStartWeek());
+        sundayEvents.append(events);
         weeklyEvents.add(sundayEvents); 
 
         mondayEvents = new JTextArea("              MONDAY\n\n",20, 15);
@@ -70,7 +75,9 @@ public class weeklyScreen extends JFrame
         mondayEvents.setWrapStyleWord(true);
         mondayEvents.setBackground(colorful2);
         mondayEvents.setEditable(false); 
-        mondayEvents.append("STUFF HERE"); //the get events for the specified day
+        events = ""; 
+        events = gatherEvents(thisWeek.getDateMonday());
+        mondayEvents.append(events);
         weeklyEvents.add(mondayEvents);
 
         tuesdayEvents = new JTextArea("             TUESDAY\n\n",20, 15);
@@ -78,7 +85,9 @@ public class weeklyScreen extends JFrame
         tuesdayEvents.setLineWrap(true); 
         tuesdayEvents.setWrapStyleWord(true);
         tuesdayEvents.setEditable(false);
-        //APPEND
+        events = ""; 
+        events = gatherEvents(thisWeek.getDateTuesday());
+        tuesdayEvents.append(events);
         weeklyEvents.add(tuesdayEvents);
 
         wednesdayEvents = new JTextArea("           WEDNESDAY\n\n",20, 15);
@@ -86,7 +95,9 @@ public class weeklyScreen extends JFrame
         wednesdayEvents.setLineWrap(true); 
         wednesdayEvents.setWrapStyleWord(true);
         wednesdayEvents.setEditable(false);
-        //APPEND
+        events = ""; 
+        events = gatherEvents(thisWeek.getDateWednesday());
+        wednesdayEvents.append(events);
         weeklyEvents.add(wednesdayEvents);
 
         thursdayEvents = new JTextArea("            THURSDAY\n\n",20, 15);
@@ -94,7 +105,9 @@ public class weeklyScreen extends JFrame
         thursdayEvents.setLineWrap(true); 
         thursdayEvents.setWrapStyleWord(true);
         thursdayEvents.setEditable(false);
-        //APPEND
+        events = ""; 
+        events = gatherEvents(thisWeek.getDateThursday());
+        thursdayEvents.append(events);
         weeklyEvents.add(thursdayEvents);
 
         fridayEvents = new JTextArea("              FRIDAY\n\n",20, 15);
@@ -102,7 +115,9 @@ public class weeklyScreen extends JFrame
         fridayEvents.setLineWrap(true); 
         fridayEvents.setWrapStyleWord(true);
         fridayEvents.setEditable(false);
-        //APPEND
+        events = ""; 
+        events = gatherEvents(thisWeek.getDateFriday());
+        fridayEvents.append(events);
         weeklyEvents.add(fridayEvents);
 
         saturdayEvents = new JTextArea("            SATURDAY\n\n",20, 15);
@@ -110,7 +125,9 @@ public class weeklyScreen extends JFrame
         saturdayEvents.setLineWrap(true); 
         saturdayEvents.setWrapStyleWord(true);
         saturdayEvents.setEditable(false);
-        //APPEND
+        events = ""; 
+        events = gatherEvents(thisWeek.getDateEndWeek());
+        saturdayEvents.append(events);
         weeklyEvents.add(saturdayEvents);
 
         //adding weekly events panel to frame
@@ -118,6 +135,46 @@ public class weeklyScreen extends JFrame
 
     }//End of weeklyScreen Constructor
 
-    //Private Inner Function for event handeling 
+    //Private Inner Function for event handeling for freetime button
+    
+    //Function
+    private String gatherEvents(String key)
+    {
+        String eventsFromFile = ""; 
+        //Formating passed day to be a complete date
+        key = thisWeek.getMonth() + "-" + key + "-" + thisWeek.getYear(); 
+
+        //trying to open file to read from
+        try
+        {
+            File newFile = new File("C:\\Users\\steph\\SCHOOL\\Dev\\MaintainControl\\src\\maintainControl\\EventFile.txt");
+            if(newFile.createNewFile())
+            {
+                JFrame f = new JFrame(); 
+                JOptionPane.showMessageDialog(f, "A File was crated to store your information in the following location: "+ newFile.getAbsolutePath());
+            }
+           //No else statment here because I don't want to give a whole bunch of pop ups before the user can view weekly screen
+            Scanner myReader = new Scanner(newFile); 
+            while (myReader.hasNextLine())
+            {
+                String date = myReader.nextLine();
+                if (date.equals(key)) 
+                {
+                    String hours = myReader.nextLine(); 
+                    String descrip = myReader.nextLine(); 
+                    eventsFromFile += "Length: " + hours + " hours \n" + descrip + "\n\n";
+                }
+            }
+            myReader.close(); 
+        }
+        catch (IOException e)
+        {
+            JOptionPane.showMessageDialog(rootPane, "An Error Occured"); 
+            e.printStackTrace();
+        }
+
+        //returning read events 
+        return eventsFromFile; 
+    }//End of gather events function
     
 }//End of weeklyScreen Class

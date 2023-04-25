@@ -85,5 +85,12 @@ public class dayClass
     {
         return Double.toString(freeTimeToday); 
     }
+
+    public String getDateMonthValue()
+    {
+        String month = ""; 
+        month = dateNum.substring(0, 2);
+        return  month; 
+    }
     
 }//end of DayClass class

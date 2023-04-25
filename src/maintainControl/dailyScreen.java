@@ -96,12 +96,14 @@ public class dailyScreen extends JFrame
             if (event.getSource() == addEvent)
             {
                 //in testing phase
-                eventClass newEvent = new eventClass(); 
+                eventClass newEvent = new eventClass(date.getDateNum()); 
                 events.append(newEvent.getWholeEventString()); 
             }
             else if (event.getSource() == deleteEvent)
             {
-                //still have to figure this out
+                eventClass newEvent = new eventClass(date.getDateNum(), 1);  
+                events.selectAll(); 
+                events.replaceSelection(gatherEvents(date.getDateNum()));
                 
             }//end of else if statements   
 
@@ -123,11 +125,7 @@ public class dailyScreen extends JFrame
                 JFrame f = new JFrame(); 
                 JOptionPane.showMessageDialog(f, "A File was crated to store your information in the following location: "+ newFile.getAbsolutePath());
             }
-            else
-            {
-                JFrame f = new JFrame(); 
-                JOptionPane.showMessageDialog(f, "Extracting events for " + key + " from EventFile.txt"); 
-            }
+
             Scanner myReader = new Scanner(newFile); 
             while (myReader.hasNextLine())
             {

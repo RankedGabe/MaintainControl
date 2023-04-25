@@ -35,6 +35,7 @@ public class monthlyScreen extends JFrame
     private JButton deleteEvent; 
     private JPanel eventGrid; 
     private JTextArea events; 
+    private dayClass findMonth; 
 
     //Constructor
     public monthlyScreen()
@@ -124,9 +125,9 @@ public class monthlyScreen extends JFrame
         events.setLineWrap(true); 
         events.setWrapStyleWord(true);
         events.setEditable(false); 
-        //String gatheredEvents = ""; 
-        //gatheredEvents = gatherEvents(); 
-        //events.append("gatheredEvents");
+        String gatheredEvents = ""; 
+        gatheredEvents = gatherEvents(); 
+        events.append(gatheredEvents);
         add(events);
 
         //setting up button handeler
@@ -155,7 +156,6 @@ public class monthlyScreen extends JFrame
             }
             else if (event.getSource() == addEvent)
             {
-                //in testing phase
                 eventClass newEvent = new eventClass(); 
                 events.append(newEvent.getWholeEventString()); 
             }
@@ -173,11 +173,10 @@ public class monthlyScreen extends JFrame
     private String gatherEvents()
     {
         String eventsFromFile = "";
-        Date d = new Date(); 
-        //TRYING TO FIGURE OUT HOW TO JUST GET THE MONTHLY VALUE 
-        //AND THEN I'LL COMPARE THAT TO A SHORTNED VERSION OF THE
-        //FIRST GETLINE TO DECIDE IF WE ADD TO THE EVENT PANE
-        String key = ""; 
+        cal = Calendar.getInstance();
+        findMonth = new dayClass(cal);  
+        String key = findMonth.getDateMonthValue(); 
+      
         //trying to open file to read from
         try
         {
@@ -196,13 +195,19 @@ public class monthlyScreen extends JFrame
             while (myReader.hasNextLine())
             {
                 String date = myReader.nextLine();
-                if (date.equals(key)) 
+                if (!date.equals(""))
                 {
-                    //For some reasn we can't get into this block so lets pretend it's not in a block for a sec
-                    String hours = myReader.nextLine(); 
-                    String descrip = myReader.nextLine(); 
-                    eventsFromFile += "Date: " + date + " Length: " + hours + " hours \n" + descrip + "\n\n";
-                }
+                    String datesub = date.substring(0, 2); 
+                    System.out.print("The subdate = "  + datesub + "\n"); 
+                    if (datesub.equals(key)) 
+                    {
+                        String hours = myReader.nextLine(); 
+                        String descrip = myReader.nextLine(); 
+                        eventsFromFile += "Date: " + date + " Length: " + hours + " hours \n" + descrip + "\n\n";
+                    } //end of if statment 
+
+                }//so that subdate is only found if date feild is not empty
+                
             }
             myReader.close(); 
         }

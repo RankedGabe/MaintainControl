@@ -110,10 +110,48 @@ public class weekClass
         return dateStartWeek; 
    }
 
+   public String getDateMonday()
+   {
+        int monday = Integer.parseInt(dateStartWeek) + 1; 
+        return Integer.toString(monday); 
+
+   }
+   public String getDateTuesday()
+   {
+        int tuesday = Integer.parseInt(dateStartWeek) + 2; 
+        return Integer.toString(tuesday);
+   }
+   public String getDateWednesday()
+   {
+        int wednesday = Integer.parseInt(dateStartWeek) + 3; 
+        return Integer.toString(wednesday);
+   }
+   public String getDateThursday()
+   {
+        int thursday = Integer.parseInt(dateStartWeek) + 4; 
+        return Integer.toString(thursday);
+   }
+   public String getDateFriday()
+   {
+        int friday = Integer.parseInt(dateStartWeek) + 5; 
+        return Integer.toString(friday);
+   }
+
 
    public String getDateEndWeek()
    {
         return dateEndWeek; 
+   }
+
+   public String getMonth()
+   {
+    return fullDateGiven.substring(0, 2); 
+
+   }
+
+   public String getYear()
+   {
+        return fullDateGiven.substring(6, 10);
    }
 
 
