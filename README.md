@@ -1,11 +1,5 @@
 Maintain Control
 -
-
 Description 
 -
-
-Dependancies
--
-
-Download
--
+A Program that saves and stores events in a calandar like format for the user to organize their busy schedual. 
