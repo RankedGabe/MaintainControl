@@ -18,7 +18,7 @@ import java.time.format.TextStyle;
 import java.util.*;
 
 //Start of weeklyScreen Class 
-public class weeklyScreen extends JFrame
+public class WeeklyScreen extends JFrame
 {
     //Objects
     private Color colorful; 
@@ -26,7 +26,7 @@ public class weeklyScreen extends JFrame
     private JLabel weekTitle; 
     private Calendar cal; 
     private YearMonth monthandyear; 
-    private weekClass thisWeek;  
+    private WeekClass thisWeek;  
     private JPanel weeklyEvents; 
     private JTextArea sundayEvents; 
     private JTextArea mondayEvents;
@@ -39,7 +39,7 @@ public class weeklyScreen extends JFrame
     
 
     //Constructor
-    public weeklyScreen()
+    public WeeklyScreen()
     {
         //Setting Up Title Area
         super("Maintain Control: Weekly Screen"); 
@@ -48,7 +48,7 @@ public class weeklyScreen extends JFrame
 
         //Setting up Title Area
         cal = Calendar.getInstance();
-        thisWeek = new weekClass(cal);
+        thisWeek = new WeekClass(cal);
         monthandyear = YearMonth.now(); 
         weekTitle = new JLabel("Week Of " + monthandyear.getMonth().getDisplayName(TextStyle.FULL_STANDALONE, Locale.ENGLISH) + " " + thisWeek.getDateStartWeek() + "-" + thisWeek.getDateEndWeek());
         weekTitle.setForeground(colorful); 

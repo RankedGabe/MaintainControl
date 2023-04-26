@@ -1,5 +1,5 @@
 ////////////////////////////////////////
-//Program Name: freeTime.java
+//Program Name: FreeTime.java
 //Program Purpose: a class for calculating user's freetime
 //Last Updated: 04/21/2023
 //Last Updated By: Savannah Stephenson
@@ -16,14 +16,14 @@ import java.util.Scanner;
 //Imports
 
 
-//Start of freeTime class
-public class freeTime 
+//Start of FreeTime class
+public class FreeTime 
 {
     //Objects
     double freeHours; 
 
     //Constructor
-    public freeTime()
+    public FreeTime()
     { 
         freeHours = 24; 
 
@@ -35,9 +35,9 @@ public class freeTime
         return freeHours; 
     }
 
-    public void setFreeHours(double freeTime)
+    public void setFreeHours(double FreeTime)
     {
-        freeHours = freeTime; 
+        freeHours = FreeTime; 
     }
 
     public void subtractHours(double minus)
@@ -67,7 +67,6 @@ public class freeTime
 
         if (type == 1) //calculate for daily time
         {
-            String key = date; 
             for (int i = 0; i < fileContents.size(); i++)
             {
                 if(fileContents.get(i).equals(date))
@@ -90,4 +89,4 @@ public class freeTime
         return freeHours; 
     }
     
-}//End of freeTime Class
+}//End of FreeTime Class

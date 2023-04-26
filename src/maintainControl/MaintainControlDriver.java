@@ -18,7 +18,7 @@ public class MaintainControlDriver
 	public static void main(String args[])
 	{
 		//Runnig Maintain Control Program
-		homeScreen maintainControl = new homeScreen(); 
+		HomeScreen maintainControl = new HomeScreen(); 
 		maintainControl.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		maintainControl.setSize(800, 250);
 		maintainControl.setVisible(true); 

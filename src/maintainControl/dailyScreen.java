@@ -20,24 +20,24 @@ import java.io.FileNotFoundException;
 import java.io.IOException; 
 
 //Start of dailyScreen class
-public class dailyScreen extends JFrame
+public class DailyScreen extends JFrame
 {
 
     //Objects
     private Color colorful; 
     private JLabel dayTitle; 
     private Calendar cal;
-    private dayClass date; 
+    private DayClass date; 
     private YearMonth monthandyear; 
     private JTextArea events; 
     private JButton deleteEvent; 
     private JButton addEvent; 
     private String gatheredEvents; 
-    private freeTime freetime; 
+    private FreeTime freetime; 
     private JButton freeTimeButton;
 
     //Constructor
-    public dailyScreen()
+    public DailyScreen()
     {
         //Calling super consturctor and setting layout
         super("Maintain Control: Daily Screen"); 
@@ -46,7 +46,7 @@ public class dailyScreen extends JFrame
 
         //Setting up Title Area
         cal = Calendar.getInstance();
-        date = new dayClass(cal); 
+        date = new DayClass(cal); 
         monthandyear = YearMonth.now();
         //Setting Month and Year from system
         dayTitle = new JLabel(monthandyear.getMonth().getDisplayName(TextStyle.FULL_STANDALONE, Locale.ENGLISH) + " " + date.getDayOfWeek() + " " + date.getDateDay()); 
@@ -91,6 +91,7 @@ public class dailyScreen extends JFrame
 
         //adding event handlers
         ButtonHandler click = new ButtonHandler();
+        freeTimeButton.addActionListener(click); 
         addEvent.addActionListener(click);
         deleteEvent.addActionListener(click);
 
@@ -106,24 +107,24 @@ public class dailyScreen extends JFrame
             if (event.getSource() == addEvent)
             {
                 //in testing phase
-                eventClass newEvent = new eventClass(date.getDateNum()); 
+                EventClass newEvent = new EventClass(date.getDateNum()); 
                 events.append(newEvent.getWholeEventString()); 
             }
             else if (event.getSource() == deleteEvent)
             {
-                eventClass newEvent = new eventClass(date.getDateNum(), 1);  
+                EventClass newEvent = new EventClass(date.getDateNum(), 1);  
                 events.selectAll(); 
                 events.replaceSelection(gatherEvents(date.getDateNum()));
                 
             }
             else if(event.getSource() == freeTimeButton)
             {
-                freetime = new freeTime(); 
+                freetime = new FreeTime(); 
                 try 
                 {
                     freetime.setFreeHours(freetime.calculateFreeTime(date.getDateNum(), 1));
                     JFrame f = new JFrame(); 
-                    JOptionPane.showMessageDialog(f, "You have " + freetime.getFreeHours() + "hours of free time today.");
+                    JOptionPane.showMessageDialog(f, "You have " + freetime.getFreeHours() + " hours of free time today.");
                 } 
                 catch (FileNotFoundException e) 
                 {

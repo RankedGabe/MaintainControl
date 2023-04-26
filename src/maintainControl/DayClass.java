@@ -12,7 +12,7 @@ package maintainControl;
 import java.util.*;
 import java.text.*; 
 
-public class dayClass
+public class DayClass
 {
 
     //Objects
@@ -22,7 +22,7 @@ public class dayClass
     private double freeTimeToday;
 
     //Constructor
-    public dayClass(Calendar dateGiven)
+    public DayClass(Calendar dateGiven)
     {
         date = dateGiven; 
         Date representation = date.getTime();

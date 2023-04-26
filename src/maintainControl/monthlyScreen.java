@@ -19,7 +19,7 @@ import java.io.File;
 import java.io.IOException;
 
 //Start of monthlyScreen Class
-public class monthlyScreen extends JFrame
+public class MonthlyScreen extends JFrame
 {
 
     //Objects 
@@ -35,10 +35,10 @@ public class monthlyScreen extends JFrame
     private JButton deleteEvent; 
     private JPanel eventGrid; 
     private JTextArea events; 
-    private dayClass findMonth; 
+    private DayClass findMonth; 
 
     //Constructor
-    public monthlyScreen()
+    public MonthlyScreen()
     {
         super("Maintain Control: Monthly View"); 
         setLayout(new FlowLayout());
@@ -148,7 +148,7 @@ public class monthlyScreen extends JFrame
             if (event.getSource() == dayButton)
             {
                 //Pop-Up Window For Daily View
-                dailyScreen dailyPopUp = new dailyScreen(); 
+                DailyScreen dailyPopUp = new DailyScreen(); 
                 dailyPopUp.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 dailyPopUp.setSize(600, 300);
                 dailyPopUp.setVisible(true);
@@ -156,12 +156,12 @@ public class monthlyScreen extends JFrame
             }
             else if (event.getSource() == addEvent)
             {
-                eventClass newEvent = new eventClass(); 
+                EventClass newEvent = new EventClass(); 
                 events.append(newEvent.getWholeEventString()); 
             }
             else if (event.getSource() == deleteEvent)
             {
-                eventClass newEvent = new eventClass(1);  
+                EventClass newEvent = new EventClass(1);  
                 events.selectAll(); 
                 events.replaceSelection(gatherEvents());
                 
@@ -176,7 +176,7 @@ public class monthlyScreen extends JFrame
     {
         String eventsFromFile = "";
         cal = Calendar.getInstance();
-        findMonth = new dayClass(cal);  
+        findMonth = new DayClass(cal);  
         String key = findMonth.getDateMonthValue(); 
       
         //trying to open file to read from

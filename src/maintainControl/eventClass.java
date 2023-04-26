@@ -15,7 +15,7 @@ import java.awt.*;
 import javax.swing.*; 
 
 //Start of eventClass Class
-public class eventClass 
+public class EventClass 
 {
     //Objects
     private String wholeEventString; 
@@ -24,7 +24,7 @@ public class eventClass
     private String description; 
 
     //Constructor
-    public eventClass()
+    public EventClass()
     {
         //Gather information for event and save in object
         date = JOptionPane.showInputDialog("Input the date of your event in mm-dd-yyyy format: ");
@@ -57,7 +57,7 @@ public class eventClass
     }//End of Constructor
 
     //Overload of constructor for daily event so that date is already there/not inputed
-    public eventClass(String dateGiven)
+    public EventClass(String dateGiven)
     {
         //Gather information for event and save in object
         date = dateGiven; 
@@ -89,7 +89,7 @@ public class eventClass
     }//End of Constructor
 
     //Overload constructor with string and int for removing an event from the text file from given day
-    public eventClass(String dateGiven, int num)
+    public EventClass(String dateGiven, int num)
     {
         //Gather information for event that user wants to delete
         date = dateGiven; 
@@ -140,7 +140,7 @@ public class eventClass
 
 
     //Overload constructor with int for removing an event from the text file from month or week
-    public eventClass(int num)
+    public EventClass(int num)
     {
         //Gather information for event that user wants to delete
         date =  JOptionPane.showInputDialog("Input the date of the event you would like to delete in mm-dd-yyyy format: ");

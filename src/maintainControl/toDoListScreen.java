@@ -15,8 +15,8 @@ import javax.swing.JPanel;
 import java.awt.*; 
 import java.awt.event.*;
 
-//Start of toDoListScreen Class 
-public class toDoListScreen extends JFrame
+//Start of ToDoListScreen Class 
+public class ToDoListScreen extends JFrame
 {
     //Objects
     private Color colorful;
@@ -25,7 +25,7 @@ public class toDoListScreen extends JFrame
     private JPanel marksArea; 
 
     //Constructor
-    public toDoListScreen()
+    public ToDoListScreen()
     {
         super("Maintain Control: To-Do List");
         setLayout(new FlowLayout());
@@ -58,7 +58,7 @@ public class toDoListScreen extends JFrame
         marksArea.setBackground(colorful); 
         add(marksArea);  
 
-    }//End of toDoListScreen Constructor
+    }//End of ToDoListScreen Constructor
 
     //Private Inner Class For Event Handeling
     private class ButtonHandler implements ActionListener
@@ -79,4 +79,4 @@ public class toDoListScreen extends JFrame
 
     }//End of ButtonHandler Class
     
-}//End of toDoListScreen Class
+}//End of ToDoListScreen Class

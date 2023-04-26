@@ -13,7 +13,7 @@ import java.util.*;
 import java.text.*; 
 
 //Start of week class
-public class weekClass
+public class WeekClass
 {
     //Objects
     private Calendar given;  
@@ -25,7 +25,7 @@ public class weekClass
     private String dateEndWeek;
 
     //Constructor
-    public weekClass(Calendar date)
+    public WeekClass(Calendar date)
     {
         given = date; 
         

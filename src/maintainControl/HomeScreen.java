@@ -1,5 +1,5 @@
 /////////////////////////////////////////
-//Program Name: homeScreen.java
+//Program Name: HomeScreen.java
 //Program Purpose: create a jFrame for the home screen of Maintain Control
 //Last Updated: 04/21/2023
 //Last Updated By: Savannah Stephenson
@@ -14,7 +14,7 @@ import java.awt.*;
 import java.awt.event.*; 
 
 //Start of homeScreen Class
-public class homeScreen extends JFrame
+public class HomeScreen extends JFrame
 {
     //Objects
     private JLabel titleArea;
@@ -27,7 +27,7 @@ public class homeScreen extends JFrame
 
 
     //Constructor
-    public homeScreen()
+    public HomeScreen()
     {
         super("Maintain Control"); 
         setLayout(new FlowLayout());
@@ -92,7 +92,7 @@ public class homeScreen extends JFrame
             if (event.getSource() == monthlyView)
             {
                 //Pop-Up Window For Monthly View
-                monthlyScreen monthlyPopUp = new monthlyScreen(); 
+                MonthlyScreen monthlyPopUp = new MonthlyScreen(); 
                 monthlyPopUp.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
                 monthlyPopUp.setSize(600, 600);
                 monthlyPopUp.setVisible(true);
@@ -100,7 +100,7 @@ public class homeScreen extends JFrame
             }
             else if (event.getSource() == weeklyView)
             {
-                weeklyScreen weeklyPopUp = new weeklyScreen(); 
+                WeeklyScreen weeklyPopUp = new WeeklyScreen(); 
                 weeklyPopUp.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
                 weeklyPopUp.setSize(1110, 500);
                 weeklyPopUp.setVisible(true);
@@ -108,7 +108,7 @@ public class homeScreen extends JFrame
             }
             else if (event.getSource() == dailyView)
             {
-                dailyScreen dailyPopUp = new dailyScreen(); 
+                DailyScreen dailyPopUp = new DailyScreen(); 
                 dailyPopUp.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
                 dailyPopUp.setSize(600, 600);
                 dailyPopUp.setVisible(true);
@@ -116,7 +116,7 @@ public class homeScreen extends JFrame
             }
             else if (event.getSource() == toDoListView)
             {
-                toDoListScreen toDoListPopUp = new toDoListScreen(); 
+                ToDoListScreen toDoListPopUp = new ToDoListScreen(); 
                 toDoListPopUp.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
                 toDoListPopUp.setSize(800, 600);
                 toDoListPopUp.setVisible(true);
