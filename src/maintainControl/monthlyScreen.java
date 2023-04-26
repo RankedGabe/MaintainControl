@@ -161,7 +161,9 @@ public class monthlyScreen extends JFrame
             }
             else if (event.getSource() == deleteEvent)
             {
-                //
+                eventClass newEvent = new eventClass(1);  
+                events.selectAll(); 
+                events.replaceSelection(gatherEvents());
                 
             }//end of else if statements   
 
@@ -195,10 +197,9 @@ public class monthlyScreen extends JFrame
             while (myReader.hasNextLine())
             {
                 String date = myReader.nextLine();
-                if (!date.equals(""))
+                if (date.length() > 3 )
                 {
-                    String datesub = date.substring(0, 2); 
-                    System.out.print("The subdate = "  + datesub + "\n"); 
+                    String datesub = date.substring(0, 2);  
                     if (datesub.equals(key)) 
                     {
                         String hours = myReader.nextLine(); 

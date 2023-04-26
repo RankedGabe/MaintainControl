@@ -88,7 +88,7 @@ public class eventClass
 
     }//End of Constructor
 
-    //Overload constructor with bool for removing an event from the text file
+    //Overload constructor with string and int for removing an event from the text file from given day
     public eventClass(String dateGiven, int num)
     {
         //Gather information for event that user wants to delete
@@ -105,6 +105,57 @@ public class eventClass
             ArrayList<String> fileContents = new ArrayList<String>(); 
 
             //Adding contents of file to a string
+            while (myReader.hasNextLine())
+            {
+                fileContents.add(myReader.nextLine()); 
+            }
+            myReader.close(); 
+
+            //Searching for and deleting the event parameters from array
+            for (int i = 0; i < fileContents.size(); i++)
+            {
+                if (fileContents.get(i).equals(date) &&
+                    fileContents.get(i+1).equals(hour) &&
+                    fileContents.get(i+2).equals(description) )
+                {
+                    fileContents.remove(i);
+                    fileContents.remove(i+1);
+                    fileContents.remove(i+2); 
+                }
+            }
+
+            //Calling function to write strings to file passing an array of strings and not appending
+            writeToFile(fileContents); 
+
+            JFrame f = new JFrame(); 
+            JOptionPane.showMessageDialog(f, "Event successfully deleted from events file." ); 
+        }
+        catch (IOException e)
+        {
+            JFrame f = new JFrame(); 
+            JOptionPane.showMessageDialog(f, "An Error Occurred.");
+        }
+
+    }//End of Constructor
+
+
+    //Overload constructor with int for removing an event from the text file from month or week
+    public eventClass(int num)
+    {
+        //Gather information for event that user wants to delete
+        date =  JOptionPane.showInputDialog("Input the date of the event you would like to delete in mm-dd-yyyy format: ");
+        hour = JOptionPane.showInputDialog("Input the hours of the event you would like to delete: ");
+        description = JOptionPane.showInputDialog("Input the title of the event you would like to delete: "); 
+        wholeEventString = "Date: " + date + " Length: " + hour + " hours \n" + description + "\n\n";  
+
+        //Delete event events file
+        try
+        {
+            File newFile = new File("C:\\Users\\steph\\SCHOOL\\Dev\\MaintainControl\\src\\maintainControl\\EventFile.txt");
+            Scanner myReader = new Scanner(newFile); 
+            ArrayList<String> fileContents = new ArrayList<String>(); 
+
+            //Adding contents of file to a string array
             while (myReader.hasNextLine())
             {
                 fileContents.add(myReader.nextLine()); 

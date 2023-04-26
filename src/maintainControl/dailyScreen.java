@@ -15,7 +15,8 @@ import java.time.*;
 import java.time.format.TextStyle;
 import java.util.*;
 import java.awt.event.*;
-import java.io.File; 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException; 
 
 //Start of dailyScreen class
@@ -32,6 +33,8 @@ public class dailyScreen extends JFrame
     private JButton deleteEvent; 
     private JButton addEvent; 
     private String gatheredEvents; 
+    private freeTime freetime; 
+    private JButton freeTimeButton;
 
     //Constructor
     public dailyScreen()
@@ -79,6 +82,13 @@ public class dailyScreen extends JFrame
         events.append(gatheredEvents);
         add(events);
 
+        //add calculate freetime button 
+        freeTimeButton = new JButton("Calculate Free Time");
+        freeTimeButton.setPreferredSize(new Dimension(500, 40));
+        freeTimeButton.setBackground(colorful); 
+        add(freeTimeButton); 
+
+
         //adding event handlers
         ButtonHandler click = new ButtonHandler();
         addEvent.addActionListener(click);
@@ -105,6 +115,23 @@ public class dailyScreen extends JFrame
                 events.selectAll(); 
                 events.replaceSelection(gatherEvents(date.getDateNum()));
                 
+            }
+            else if(event.getSource() == freeTimeButton)
+            {
+                freetime = new freeTime(); 
+                try 
+                {
+                    freetime.setFreeHours(freetime.calculateFreeTime(date.getDateNum(), 1));
+                    JFrame f = new JFrame(); 
+                    JOptionPane.showMessageDialog(f, "You have " + freetime.getFreeHours() + "hours of free time today.");
+                } 
+                catch (FileNotFoundException e) 
+                {
+                    JFrame f = new JFrame(); 
+                    JOptionPane.showMessageDialog(f, "An Error Occurred.");
+                    e.printStackTrace();
+                }
+                //add joptoin frame telling freetime
             }//end of else if statements   
 
         }//end of override of function
@@ -132,7 +159,6 @@ public class dailyScreen extends JFrame
                 String date = myReader.nextLine();
                 if (date.equals(key)) 
                 {
-                    //For some reasn we can't get into this block so lets pretend it's not in a block for a sec
                     String hours = myReader.nextLine(); 
                     String descrip = myReader.nextLine(); 
                     eventsFromFile += "Date: " + date + " Length: " + hours + " hours \n" + descrip + "\n\n";
