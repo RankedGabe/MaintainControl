@@ -81,11 +81,6 @@ public class DayClass
 
     }//End of gatDateDay function
 
-    public String getFreeTimeToday()
-    {
-        return Double.toString(freeTimeToday); 
-    }
-
     public String getDateMonthValue()
     {
         String month = ""; 

@@ -11,7 +11,10 @@ package maintainControl;
 //Imports
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.time.*;
 import java.time.format.TextStyle;
@@ -36,6 +39,8 @@ public class WeeklyScreen extends JFrame
     private JTextArea fridayEvents;
     private JTextArea saturdayEvents;
     private String events; 
+    private JButton freeTimeButton;
+    private FreeTime freetime;  
     
 
     //Constructor
@@ -133,9 +138,45 @@ public class WeeklyScreen extends JFrame
         //adding weekly events panel to frame
         add(weeklyEvents); 
 
+        //add calculate freetime button 
+        freeTimeButton = new JButton("Calculate Free Time");
+        freeTimeButton.setPreferredSize(new Dimension(1000, 40));
+        freeTimeButton.setBackground(colorful); 
+        add(freeTimeButton); 
+        ButtonHandler click = new ButtonHandler();
+        freeTimeButton.addActionListener(click); 
+
     }//End of weeklyScreen Constructor
 
     //Private Inner Function for event handeling for freetime button
+    private class ButtonHandler implements ActionListener
+    {
+        //Handle button event
+		@Override
+		public void actionPerformed(ActionEvent event)
+		{
+            if (event.getSource() == freeTimeButton)
+            {
+                freetime = new FreeTime(); 
+                freetime.setFreeHours(24.0*7.0);  
+                try 
+                {
+                    freetime.setFreeHours(freetime.calculateFreeTime(thisWeek.getDateStartWeek(), 2));
+                    JFrame f = new JFrame(); 
+                    JOptionPane.showMessageDialog(f, "You have " + freetime.getFreeHours() + " hours of free time this week.");
+                } 
+                catch (FileNotFoundException e) 
+                {
+                    JFrame f = new JFrame(); 
+                    JOptionPane.showMessageDialog(f, "An Error Occurred.");
+                    e.printStackTrace();
+                }
+                //add joptoin frame telling freetime
+            }//end of else if statements   
+
+        }//end of override of function
+
+    }//End of ButtonHandler Class
     
     //Function
     private String gatherEvents(String key)

@@ -94,7 +94,7 @@ public class HomeScreen extends JFrame
                 //Pop-Up Window For Monthly View
                 MonthlyScreen monthlyPopUp = new MonthlyScreen(); 
                 monthlyPopUp.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
-                monthlyPopUp.setSize(600, 600);
+                monthlyPopUp.setSize(600, 800);
                 monthlyPopUp.setVisible(true);
 
             }
@@ -102,7 +102,7 @@ public class HomeScreen extends JFrame
             {
                 WeeklyScreen weeklyPopUp = new WeeklyScreen(); 
                 weeklyPopUp.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
-                weeklyPopUp.setSize(1110, 500);
+                weeklyPopUp.setSize(1110, 550);
                 weeklyPopUp.setVisible(true);
 
             }

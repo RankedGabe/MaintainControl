@@ -212,7 +212,7 @@ public class EventClass
         return description; 
     }
 
-    public static void writeToFile(ArrayList<String> list)
+    public void writeToFile(ArrayList<String> list)
     {
         try
         {
